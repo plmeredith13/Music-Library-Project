@@ -1,0 +1,13 @@
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\bin\Debug\netcoreapp3.1\Music-Library-Project.exe
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\bin\Debug\netcoreapp3.1\Music-Library-Project.deps.json
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\bin\Debug\netcoreapp3.1\Music-Library-Project.runtimeconfig.json
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\bin\Debug\netcoreapp3.1\Music-Library-Project.runtimeconfig.dev.json
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\bin\Debug\netcoreapp3.1\Music-Library-Project.dll
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\bin\Debug\netcoreapp3.1\Music-Library-Project.pdb
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\obj\Debug\netcoreapp3.1\Music-Library-Project.csprojAssemblyReference.cache
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\obj\Debug\netcoreapp3.1\Music-Library-Project.csproj.CoreCompileInputs.cache
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\obj\Debug\netcoreapp3.1\Music-Library-Project.AssemblyInfoInputs.cache
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\obj\Debug\netcoreapp3.1\Music-Library-Project.AssemblyInfo.cs
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\obj\Debug\netcoreapp3.1\Music-Library-Project.dll
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\obj\Debug\netcoreapp3.1\Music-Library-Project.pdb
+C:\Users\Luke2\Dropbox\Code Louisville Projects\Music-Library-Project\obj\Debug\netcoreapp3.1\Music-Library-Project.genruntimeconfig.cache

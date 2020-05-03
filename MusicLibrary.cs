@@ -22,10 +22,10 @@ namespace plmeredith13.CodeLou.FinalProject
         {
             return JsonSerializer.Deserialize<List<Song>>(File.ReadAllText(_songRepositoryPath));
         }
-        //static List<Song> SongsList = new List<Song>();
 
         static void Main(string[] args)
         {
+            Console.Clear();
             var inputtingSong = true;
 
             while (inputtingSong)
@@ -40,12 +40,14 @@ namespace plmeredith13.CodeLou.FinalProject
                         break;
                     case 2:
                         DisplaySongs();
-
                         break;
                     case 3:
                         SearchSongs();
                         break;
                     case 4:
+                        RemoveSongs();
+                        break;
+                    case 5:
                         inputtingSong = false;
                         break;
                 }
@@ -56,56 +58,83 @@ namespace plmeredith13.CodeLou.FinalProject
         {
             if (Songs.Any())
             {
-                Console.WriteLine($"Title | Artist |  Album");
+                Console.WriteLine($"\n\"Title\"  -  Artist   (Album) \n");
                 SongsList.ForEach(x =>
                 {
-                    Console.WriteLine(x.SongDisplay);
+                    Console.WriteLine(x.SongDisplay + "\n");
                 });
             }
             else
             {
-                System.Console.WriteLine("No songs found.");
+                Console.WriteLine("\nNo songs found.");
             }
+            Console.WriteLine(" ");
         }
 
         private static void DisplaySongs() => DisplaySongs(SongsList);
 
         private static void SearchSongs()
         {
-            Console.WriteLine("Search string:");
+            Console.WriteLine("\nSearch for a song: \n");
             var searchString = Console.ReadLine();
-            var Songs = SongsList.Where(x => x.SongTitle.ToLower().Contains(searchString.ToLower()) || x.Album.ToLower().Contains(searchString.ToLower()));
-            DisplaySongs(Songs);
+            var searchResults = SongsList.Where(x => x.SongTitle.ToLower().Contains(searchString.ToLower()));
+            DisplaySongs(searchResults);
         }
 
         private static void DisplayMenu()
         {
-            Console.Clear();
             Console.WriteLine("Select from the following operations:");
             Console.WriteLine("1: Enter new song");
             Console.WriteLine("2: List all songs");
-            Console.WriteLine("3: Search for song by name");
-            Console.WriteLine("4: Exit");
+            Console.WriteLine("3: Search for song by title");
+            Console.WriteLine("4: Remove a song by title");
+            Console.WriteLine("5: Exit \n");
+        }
+
+        private static void RemoveSongs()
+        {
+            bool confirmed = false;
+            string Key;
+            do
+            {
+                Console.WriteLine("\nEnter the title of the song you'd like to remove \n");
+                Key = Console.ReadLine();
+                var Songs = SongsList.Where(x => x.SongTitle.ToLower().Contains(Key.ToLower()));
+                DisplaySongs(Songs);
+                
+                ConsoleKey response;
+                do
+                {
+                    Console.WriteLine("\nIs this the song you'd like to remove? [y/n] \n");
+                    response = Console.ReadKey(false).Key;
+                    if (response != ConsoleKey.Enter)
+                    {
+                        Console.WriteLine();
+                    }
+                } while (response != ConsoleKey.Y && response != ConsoleKey.N);
+                confirmed = response == ConsoleKey.Y;
+            } while (!confirmed);
+            
+            if (confirmed)
+                {
+                    SongsList.RemoveAll(x => x.SongTitle.ToLower().Contains(Key.ToLower()));
+                    Console.WriteLine("\nYou have successfully deleted the song from the music library! \n");
+
+                    Save();
+                }
         }
 
         static void InputSong()
         {
+            Console.WriteLine(" ");
             var Song = new Song();
-            while (true)
-            {
-                Console.WriteLine("Enter song title:");
-                var SongTitleSuccessful = true;
-                var SongTitle = Console.ReadLine();         //var SongTitleSuccessful = int.TryParse(Console.ReadLine(), out var SongTitle);
-                if (SongTitleSuccessful)
-                {
-                    Song.SongTitle = SongTitle;
-                    break;
-                }
-            }
-            Console.WriteLine("Enter song artist");
+            Console.WriteLine("Enter song title \n");
+            Song.SongTitle = Console.ReadLine();
+            Console.WriteLine("\nEnter song artist \n");
             Song.Artist = Console.ReadLine();
-            Console.WriteLine("Enter album name");
+            Console.WriteLine("\nEnter album name \n");
             Song.Album = Console.ReadLine();
+            Console.WriteLine(" ");
 
             SongsList.Add(Song);
             Save();

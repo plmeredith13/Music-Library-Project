@@ -6,6 +6,6 @@ namespace src
         public string SongTitle { get; set; }
         public string Artist { get; set; }
         public string Album { get; set; }
-        public string SongDisplay => $"{SongTitle} | {Artist} | {Album} ";
+        public string SongDisplay => $" \"{SongTitle}\" - {Artist}  ({Album}) ";
     }
 }
